@@ -12,6 +12,9 @@ void main() {
   ) async {
     Future<void> capture(String name) async {
       for (var frame = 0; frame < 10; frame++) {
+        for (final view in binding.renderViews) {
+          view.markNeedsPaint();
+        }
         await tester.pump(const Duration(milliseconds: 100));
       }
       await binding.takeScreenshot(name);
