@@ -493,14 +493,16 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        key: const Key('add_task'),
-        onPressed: busy ? null : add,
-        backgroundColor: violet,
-        foregroundColor: Colors.white,
-        icon: const Icon(Icons.add),
-        label: const Text('Nova tarefa'),
-      ),
+      floatingActionButton: tab == 0
+          ? null
+          : FloatingActionButton.extended(
+              key: const Key('add_task'),
+              onPressed: busy ? null : add,
+              backgroundColor: violet,
+              foregroundColor: Colors.white,
+              icon: const Icon(Icons.add),
+              label: const Text('Nova tarefa'),
+            ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: tab,
         onDestinationSelected: (value) => setState(() => tab = value),
